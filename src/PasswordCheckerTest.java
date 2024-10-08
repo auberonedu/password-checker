@@ -43,6 +43,16 @@ public class PasswordCheckerTest {
   }
 
   @Test
+  void testIsAlphanumericLetters() {
+    // Arrange
+    PasswordChecker letterPassword = new PasswordChecker(6, 12);
+    // Act
+    Boolean answer = letterPassword.isAlphanumeric("abcdefghijk");
+    // Assert
+    assertEquals(true, answer);
+  }
+
+  @Test
   void testIsBannedPassword() {
 
   }
