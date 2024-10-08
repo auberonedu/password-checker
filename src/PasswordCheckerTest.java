@@ -93,7 +93,7 @@ public class PasswordCheckerTest {
 
         // check
         // 123456 -r DONE
-        // QWERTY -a
+        // QWERTY -a DONE
         // MANGO - r DONE
         // MANGO (if constructor adds "MANGO" to forbidden passwords via constructor) -r
 
