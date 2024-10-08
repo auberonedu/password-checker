@@ -60,4 +60,11 @@ public class PasswordCheckerTest {
         Boolean isBanned = checker.isBannedPassword("123456");
         assertEquals(true, isBanned);
     }
+
+    @Test
+    void testIsBannedPasswordCaseSensitivity(){
+        PasswordChecker checker = new PasswordChecker(4, 6);
+        Boolean isBanned = checker.isBannedPassword("PASSWORD123");
+        assertEquals(true, isBanned);
+    }
 }
