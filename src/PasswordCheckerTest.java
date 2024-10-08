@@ -13,7 +13,6 @@ public class PasswordCheckerTest {
         assertEquals("short", actual);
     }
 
-
     @Test 
     void testDescribePasswordLengthLong() {
         // Arrange
@@ -35,10 +34,21 @@ public class PasswordCheckerTest {
     @Test
     void testIsAlphanumeric() {
 
+        // Check:
+        // !!!!! -r
+        // 12345 -a
+        // "    " -r
+        // turtles -a
+
     }
 
     @Test
     void testIsBannedPassword() {
+
+        // check
+        // 123456 -r
+        // QWERTY -a
+        // MANGO -r
 
     }
 }
