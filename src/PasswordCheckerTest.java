@@ -44,7 +44,14 @@ public class PasswordCheckerTest {
 
     @Test
     void testIsAlphanumeric() {
+        // Arrange
+        PasswordChecker input = new PasswordChecker(6, 12);
 
+        // Act
+        boolean actual = input.isAlphanumeric("abcde12345");
+
+        // Assert
+        assertEquals(true, actual);
     }
 
     @Test
