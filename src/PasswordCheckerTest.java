@@ -75,6 +75,16 @@ public class PasswordCheckerTest {
         assertEquals(false, alphanumericOrNot);
     }
 
+    @Test 
+    void testIsAlphanumericAlphabetic() {
+        // Arrange
+        PasswordChecker checker = new PasswordChecker(2, 7);
+        // Act
+        boolean alphanumericOrNot = checker.isAlphanumeric("turtles");
+        // Assert
+        assertEquals(true, alphanumericOrNot);
+    }
+
     @Test
     void testIsBannedPassword() {
 
