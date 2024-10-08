@@ -12,6 +12,15 @@ public class PasswordCheckerTest {
         // Assert
         assertEquals("medium", actualLength);
     }   
+    @Test
+    void testDescribePasswordLengthShort(){
+        // Assign
+        PasswordChecker checker = new PasswordChecker(4, 6);
+        // Act
+        String actualLength= checker.describePasswordLength("kma");
+        // Assert
+        assertEquals("short", actualLength);
+    }
 
     @Test
     void testIsAlphanumeric() {
