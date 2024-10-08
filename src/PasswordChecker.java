@@ -21,16 +21,12 @@ public class PasswordChecker {
         this.mediumThreshold = mediumThreshold;
 
         // Initialize with default banned passwords
-        Set<String> defaultBannedPasswords = getDefaultBannedPasswords();
+        this.bannedPasswords = getDefaultBannedPasswords();
+
+
 
         // Merge with custom banned passwords if provided
-        // this.bannedPasswords.addAll(customBannedPasswords);
-
-        Set<String> newBannedPasswordsList = new HashSet<>();
-        newBannedPasswordsList.addAll(defaultBannedPasswords);
-        newBannedPasswordsList.addAll(customBannedPasswords);
-
-        this.bannedPasswords = newBannedPasswordsList;
+        this.bannedPasswords.addAll(customBannedPasswords);
     }
 
     /**
@@ -87,7 +83,16 @@ public class PasswordChecker {
      * @return true if the password is banned, false otherwise
      */
     public boolean isBannedPassword(String password) {
-        return bannedPasswords.contains(password.toLowerCase());
+        // Bug fixed! 
+        /* Previously, if the user added banned passwords that were 
+        not case sensitive, this method would miss it because it was 
+        only checking the string set to lower case*/
+        
+        boolean inBannedList = false;
+        if (bannedPasswords.contains(password) || bannedPasswords.contains(password.toLowerCase())){
+            inBannedList = true;
+        }
+        return inBannedList;
     }
 
     /**
@@ -96,19 +101,9 @@ public class PasswordChecker {
      * @return A set of default banned passwords
      */
     private Set<String> getDefaultBannedPasswords() {
-        Set<String> bannedPassword = new HashSet<>();
-        bannedPassword.add("password123");
-        bannedPassword.add("123456");
-        bannedPassword.add("qwerty");
-        bannedPassword.add("letmein");
-        bannedPassword.add("password");
-        bannedPassword.add("hello");
 
-        return bannedPassword;
-
-
-        // return new HashSet<>(Arrays.asList(
-        //     "password123", "123456", "qwerty", "letmein", "password", "hello"
-        // ));
+        return new HashSet<>(Arrays.asList(
+            "password123", "123456", "qwerty", "letmein", "password", "hello"
+        ));
     }
 }

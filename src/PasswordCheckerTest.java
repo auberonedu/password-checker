@@ -95,7 +95,7 @@ public class PasswordCheckerTest {
         // 123456 -r DONE
         // QWERTY -a
         // MANGO - r DONE
-        // MANGO (if constructor adds "MANGO" to forbidden passwords via constructor) -r
+        // MAnGO (if constructor adds "MAnGO" to forbidden passwords via constructor) -r DONE
 
 
     // NOTE: Constructor lets you ADD to the set of banned passwords - I'm going to try adding MANGO to list of forbidden passwords
@@ -126,10 +126,10 @@ public class PasswordCheckerTest {
     void testIsBannedPasswordAddedInConstructor() {
         // Arrange
         Set<String> moreBannedPasswords = new HashSet<>();
-        moreBannedPasswords.add("MANGO");
+        moreBannedPasswords.add("MAnGO");
         PasswordChecker checker = new PasswordChecker(2, 7, moreBannedPasswords);
         // Act
-        boolean isBanned = checker.isBannedPassword("MANGO");
+        boolean isBanned = checker.isBannedPassword("MAnGO");
         // Assert
         assertEquals(true, isBanned);   
 
