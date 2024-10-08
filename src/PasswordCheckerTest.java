@@ -41,6 +41,15 @@ public class PasswordCheckerTest {
     }
 
     @Test
+    void testIsAlphanumericFalse(){
+        PasswordChecker checker = new PasswordChecker(5, 8);
+
+        Boolean isAlphanumeric = checker.isAlphanumeric("!!!!!!!!!");
+
+        assertEquals(false, isAlphanumeric);
+    }
+
+    @Test
     void testIsBannedPassword() {
 
     }
