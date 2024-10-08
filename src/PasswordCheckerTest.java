@@ -33,8 +33,13 @@ public class PasswordCheckerTest {
   }
 
   @Test
-  void testIsAlphanumeric() {
-
+  void testIsAlphanumericNumbers() {
+    // Arrange
+    PasswordChecker numberPassword = new PasswordChecker(6, 12);
+    // Act
+    Boolean answer = numberPassword.isAlphanumeric("1123541");
+    // Assert
+    assertEquals(true, answer);
   }
 
   @Test
