@@ -21,7 +21,33 @@ public class PasswordCheckerTest {
     }
 
     @Test
-    void testIsBannedPassword() {
+    void testIsBannedPasswordpassword123() {
 
     }
+
+    @Test
+    void testIsBannedPassword123456() {
+
+    }
+
+    @Test
+    void testIsBannedPasswordqwerty() {
+
+    }
+
+    @Test
+    void testIsBannedPasswordletmein() {
+
+    }
+
+    @Test
+    void testIsBannedPasswordpassword() {
+
+    }
+
+    @Test
+    void testIsBannedPasswordhello() {
+
+    }
+    
 }
