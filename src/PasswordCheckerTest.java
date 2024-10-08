@@ -25,7 +25,12 @@ public class PasswordCheckerTest {
 
     @Test
     void testIsAlphanumeric() {
-
+    // Arrange
+    PasswordChecker alphanumeric = new PasswordChecker(5, 10);
+    // Act
+    boolean actualDescription = alphanumeric.isAlphanumeric("Heythere");
+    // Assert
+    assertEquals(true, actualDescription);
     }
 
     @Test
