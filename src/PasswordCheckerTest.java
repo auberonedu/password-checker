@@ -23,6 +23,15 @@ public class PasswordCheckerTest {
     }
 
     @Test
+    void testDescribePasswordLengthLong(){
+        PasswordChecker checker = new PasswordChecker(4, 6);
+
+        String actualLength = checker.describePasswordLength("longestentry");
+
+        assertEquals("long", actualLength);
+    }
+
+    @Test
     void testIsAlphanumeric() {
 
     }
