@@ -13,6 +13,16 @@ public class PasswordCheckerTest {
         assertEquals("short", actual);
     }
 
+
+    @Test 
+    void testDescribePasswordLengthLong() {
+        // Arrange
+        PasswordChecker checker = new PasswordChecker(2, 7);
+        // Act 
+        String actual = checker.describePasswordLength("alongpassword");
+        // Assert
+        assertEquals("long", actual);
+    }
     @Test
     void testIsAlphanumeric() {
 
