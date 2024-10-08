@@ -39,7 +39,7 @@ public class PasswordCheckerTest {
 
         // Check:
         // !!!!! -r DONE
-        // 12345 -a
+        // 12345 -a DONE
         // "    " -r DONE
         // turtles -a
 
@@ -53,6 +53,16 @@ public class PasswordCheckerTest {
         boolean alphanumericOrNot = checker.isAlphanumeric("!!!!!");
         // Assert
         assertEquals(false, alphanumericOrNot);
+    }
+
+    @Test
+    void testIsAlphanumericNumbers(){
+        // Arrange
+        PasswordChecker checker = new PasswordChecker(2, 7);
+        // Act
+        boolean alphanumericOrNot = checker.isAlphanumeric("12345");
+        // Assert
+        assertEquals(true, alphanumericOrNot);
     }
 
     @Test
