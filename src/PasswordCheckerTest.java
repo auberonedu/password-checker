@@ -34,12 +34,33 @@ public class PasswordCheckerTest {
     }
 
     @Test
-    void testIsAlphanumeric() {
+    void testIsAlphanumericLetter() {
         // Arrange
-        
+        PasswordChecker password = new PasswordChecker(6, 12);
         // Act
-
+        boolean actualLetter = password.isAlphanumeric("CAR");
         // Assert
+        assertEquals(true, actualLetter);
+    }
+
+    @Test
+    void testIsAlphanumericDigit() {
+        // Arrange
+        PasswordChecker password = new PasswordChecker(6, 12);
+        // Act
+        boolean actualDigit = password.isAlphanumeric("1232932");
+        // Assert
+        assertEquals(true, actualDigit);
+    }
+
+    @Test
+    void testIsAlphanumericSpecial() {
+        // Arrange
+        PasswordChecker password = new PasswordChecker(6, 12);
+        // Act
+        boolean actualSpecial = password.isAlphanumeric("@%^&**");
+        // Assert
+        assertEquals(false, actualSpecial);
     }
 
     @Test
