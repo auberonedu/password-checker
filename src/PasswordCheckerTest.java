@@ -13,7 +13,7 @@ public class PasswordCheckerTest {
         assertEquals("short", actual);
     }
 
-
+ 
     @Test 
     void testDescribePasswordLengthLong() {
         // Arrange
