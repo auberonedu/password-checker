@@ -50,7 +50,12 @@ public class PasswordCheckerTest {
     }
 
     @Test
-    void testIsAlphanumeric(){
+    void testIsAlphanumericEnd(){
+        PasswordChecker checker = new PasswordChecker(5, 8);
+
+        Boolean isAlphanumeric = checker.isAlphanumeric("welcome!");
+
+        assertEquals(false, isAlphanumeric);
 
     }
 
