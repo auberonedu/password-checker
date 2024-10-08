@@ -67,6 +67,18 @@ public class PasswordCheckerTest {
     }
 
     @Test
+    void testIsAlphanumericFinalCharacterRecognition() {
+        // Arrange
+        PasswordChecker input = new PasswordChecker(6, 12);
+
+        // Act
+        boolean actual = input.isAlphanumeric("abcde123!");
+
+        // Assert
+        assertEquals(false, actual);
+    }
+
+    @Test
     void testIsBannedPassword() {
 
     }
