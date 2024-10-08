@@ -24,6 +24,15 @@ public class PasswordCheckerTest {
         assertEquals("long", actual);
     }
     @Test
+    void testDescribePasswordLengthMedium() {
+        PasswordChecker checker = new PasswordChecker(2, 7);
+        // Act
+        String actual = checker.describePasswordLength("abcd");
+        // Assert
+        assertEquals("medium", actual);
+    }
+
+    @Test
     void testIsAlphanumeric() {
 
     }
