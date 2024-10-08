@@ -24,9 +24,4 @@ public class PasswordCheckerTest {
     void testIsBannedPassword() {
 
     }
-<<<<<<< HEAD
-
-    
-=======
->>>>>>> c6a36faa1099bf17fc9a097e0931e04c62c3c012
 }
