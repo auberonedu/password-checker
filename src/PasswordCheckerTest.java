@@ -79,7 +79,15 @@ public class PasswordCheckerTest {
     }
 
     @Test
-    void testIsBannedPassword() {
+    void testIsBannedPasswordTrue() {
+        // Arrange
+        PasswordChecker input = new PasswordChecker(6, 12);
+
+        // Act
+        boolean actual = input.isBannedPassword("password");
+
+        // Assert
+        assertEquals(true, actual);
 
     }
 }
