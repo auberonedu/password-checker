@@ -10,6 +10,7 @@ public class PasswordCheckerTest {
     String actualLength = shortPassword.describePasswordLength("abcde");
     // Assert
     assertEquals("short", actualLength);
+  }
 
   @Test
   void testDescribePasswordLengthMedium() {
@@ -19,6 +20,16 @@ public class PasswordCheckerTest {
     String actualLength = mediumPassword.describePasswordLength("abc123abc");
     // Assert
     assertEquals("medium", actualLength);
+  }
+
+  @Test
+  void testDescribePasswordLengthLong() {
+    // Arrange
+    PasswordChecker longPassword = new PasswordChecker(6, 12);
+    // Act
+    String actualLength = longPassword.describePasswordLength("abc123abcdefghijklmnop");
+    // Assert
+    assertEquals("long", actualLength);
   }
 
   @Test
