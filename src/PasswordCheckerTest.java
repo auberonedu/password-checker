@@ -102,9 +102,19 @@ public class PasswordCheckerTest {
         // Arrange
         PasswordChecker checker = new PasswordChecker(2, 7);
         // Act
-        boolean alphanumericOrNot = checker.isBannedPassword("123456");
+        boolean bannedOrNot = checker.isBannedPassword("123456");
         // Assert
-        assertEquals(true, alphanumericOrNot);
+        assertEquals(true, bannedOrNot);
+    }
+    
+    @Test
+    void testIsBannedPasswordCaseSensitivity() {
+        // Arrange
+        PasswordChecker checker = new PasswordChecker(2, 7);
+        // Act
+        boolean bannedOrNot = checker.isBannedPassword("QWERTY");
+        // Assert
+        assertEquals(true, bannedOrNot);
     }
 
     @Test
