@@ -5,14 +5,27 @@ import org.junit.jupiter.api.Test;
 public class PasswordCheckerTest {
     @Test
     void testDescribePasswordLengthTooShort() {
-        //Arrange
+        // Arrange
         PasswordChecker length = new PasswordChecker(6, 12);
 
-        //Act
+        // Act
         String actual = length.describePasswordLength("a");
 
-        //Assert
+        // Assert
         assertEquals("short", actual);
+
+    }
+
+    @Test
+    void testDescribePasswordLengthMedium() {
+        // Arrange
+        PasswordChecker length = new PasswordChecker(6, 12);
+
+        // Act
+        String actual = length.describePasswordLength("abcdefgh");
+
+        // Assert
+        assertEquals("medium", actual);
 
     }
 
