@@ -53,6 +53,15 @@ public class PasswordCheckerTest {
   }
 
   @Test
+  void testIsAlphanumericNonAlphanumeric() {
+    // Arrange
+    PasswordChecker nonPassword = new PasswordChecker(6, 12);
+    // Act
+    Boolean answer = nonPassword.isAlphanumeric("!@%^$*#^$()");
+    // Assert
+    assertEquals(false, answer);
+  }
+  @Test
   void testIsBannedPassword() {
 
   }
