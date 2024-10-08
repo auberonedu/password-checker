@@ -1,5 +1,8 @@
 import static org.junit.Assert.assertEquals;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.swing.Action;
 
 import org.junit.jupiter.api.Test;
@@ -71,8 +74,9 @@ public class PasswordCheckerTest {
         // check
         // 123456 -r DONE
         // QWERTY -a
-        // MANGO (if constructor adds "MANGO" to forbidden passwords via constructor -r
-        // MANGO - a
+        // MANGO - r DONE
+        // MANGO (if constructor adds "MANGO" to forbidden passwords via constructor) -r
+
 
     // NOTE: Constructor lets you ADD to the set of banned passwords - I'm going to try adding MANGO to list of forbidden passwords
     }
@@ -82,13 +86,32 @@ public class PasswordCheckerTest {
         // Arrange
         PasswordChecker checker = new PasswordChecker(2, 7);
         // Act
-        boolean alphanumericOrNot = checker.isBannedPassword("123456");
+        boolean isBanned = checker.isBannedPassword("123456");
         // Assert
-        assertEquals(true, alphanumericOrNot);
+        assertEquals(true, isBanned);
     }
+
+    @Test
+    void testIsBannedNotOnList() {
+        // Arrange
+        PasswordChecker checker = new PasswordChecker(2, 7);
+        // Act
+        boolean isBanned = checker.isBannedPassword("MANGO");
+        // Assert
+        assertEquals(false, isBanned);
+    }
+
 
     @Test
     void testIsBannedPasswordAddedInConstructor() {
         // Arrange
+        Set<String> moreBannedPasswords = new HashSet<>();
+        moreBannedPasswords.add("MANGO");
+        PasswordChecker checker = new PasswordChecker(2, 7, moreBannedPasswords);
+        // Act
+        boolean isBanned = checker.isBannedPassword("MANGO");
+        // Assert
+        assertEquals(true, isBanned);   
+
     }
 }

@@ -1,6 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class PasswordChecker {
     private int shortThreshold;
@@ -20,10 +21,16 @@ public class PasswordChecker {
         this.mediumThreshold = mediumThreshold;
 
         // Initialize with default banned passwords
-        this.bannedPasswords = getDefaultBannedPasswords();
+        Set<String> defaultBannedPasswords = getDefaultBannedPasswords();
 
         // Merge with custom banned passwords if provided
-        this.bannedPasswords.addAll(customBannedPasswords);
+        // this.bannedPasswords.addAll(customBannedPasswords);
+
+        Set<String> newBannedPasswordsList = new HashSet<>();
+        newBannedPasswordsList.addAll(defaultBannedPasswords);
+        newBannedPasswordsList.addAll(customBannedPasswords);
+
+        this.bannedPasswords = newBannedPasswordsList;
     }
 
     /**
@@ -89,8 +96,19 @@ public class PasswordChecker {
      * @return A set of default banned passwords
      */
     private Set<String> getDefaultBannedPasswords() {
-        return new HashSet<>(Arrays.asList(
-            "password123", "123456", "qwerty", "letmein", "password", "hello"
-        ));
+        Set<String> bannedPassword = new HashSet<>();
+        bannedPassword.add("password123");
+        bannedPassword.add("123456");
+        bannedPassword.add("qwerty");
+        bannedPassword.add("letmein");
+        bannedPassword.add("password");
+        bannedPassword.add("hello");
+
+        return bannedPassword;
+
+
+        // return new HashSet<>(Arrays.asList(
+        //     "password123", "123456", "qwerty", "letmein", "password", "hello"
+        // ));
     }
 }
