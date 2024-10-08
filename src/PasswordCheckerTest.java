@@ -103,4 +103,19 @@ public class PasswordCheckerTest {
         assertEquals(false, actual);
 
     }
+
+    @Test
+    void testIsBannedPasswordUpperCaseAllowed() {
+        // Arrange
+        PasswordChecker input = new PasswordChecker(6, 12);
+
+        // Act
+        boolean actual = input.isBannedPassword("PASS12word");
+
+        // Assert
+        assertEquals(false, actual);
+
+    }
+
+    
 }
