@@ -14,6 +14,16 @@ public class PasswordCheckerTest {
     }
 
     @Test
+    void testDescribePasswordLengthTooShort() {
+    // Arrange
+    PasswordChecker checkLength = new PasswordChecker(3, 8);
+    // Act
+    String actualDescription = checkLength.describePasswordLength("hi");
+    // Assert
+    assertEquals("short", actualDescription);
+    }
+
+    @Test
     void testIsAlphanumeric() {
 
     }
