@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class PasswordCheckerTest {
     @Test
-    void testDescribePasswordLength() {
+    void testDescribePasswordLengthMedium() {
         // Assign
         PasswordChecker checker = new PasswordChecker(4, 6);
         // Act
