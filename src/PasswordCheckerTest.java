@@ -30,6 +30,19 @@ public class PasswordCheckerTest {
     }
 
     @Test
+    void testDescribePasswordLengthLong() {
+        // Arrange
+        PasswordChecker length = new PasswordChecker(6, 12);
+
+        // Act
+        String actual = length.describePasswordLength("asdfjklqwertyu");
+
+        // Assert
+        assertEquals("long", actual);
+
+    }
+
+    @Test
     void testIsAlphanumeric() {
 
     }
