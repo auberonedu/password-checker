@@ -6,10 +6,17 @@ import org.junit.jupiter.api.Test;
 
 public class PasswordCheckerTest {
     @Test
-    void testDescribePasswordLength() {
+    void testDescribePasswordLength_Short() {
         PasswordChecker checker = new PasswordChecker(6, 12);
         assertEquals("short", checker.describePasswordLength("abc"), "Password should be classified as short.");
 
+    }
+
+    @Test
+    void testDescribePasswordLength_Medium() {
+        PasswordChecker checker = new PasswordChecker(6, 12);
+        assertEquals("medium", checker.describePasswordLength("abcdef"), "Password should be classified as medium.");
+    
     }
 
     @Test
