@@ -81,4 +81,4 @@ public class PasswordCheckerTest {
         // Assert
         assertEquals(true, isBannedPassword);
     }
-}
+} 
