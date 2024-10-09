@@ -9,10 +9,8 @@ public class PasswordCheckerTest {
     void testMediumPasswordLength() {
         // Arrange
         PasswordChecker checker = new PasswordChecker(5, 6);
-        
         // Act 
         String describePasswordLength = checker.describePasswordLength("hello");
-        
         // Assert 
         assertEquals("medium", describePasswordLength);
     }
@@ -22,10 +20,8 @@ public class PasswordCheckerTest {
     void testLongPasswordLength() {
         // Arrange
         PasswordChecker checker = new PasswordChecker(5, 10);
-        
         // Act 
         String describePasswordLength = checker.describePasswordLength("superlongrandompassword");
-        
         // Assert 
         assertEquals("long", describePasswordLength);
     }
@@ -38,7 +34,6 @@ public class PasswordCheckerTest {
         PasswordChecker checker = new PasswordChecker(6, 10);
         // Act
         String describePasswordLength = checker.describePasswordLength("hello");
-
         // Assert
         assertEquals("short", describePasswordLength);
     }
@@ -48,10 +43,8 @@ public class PasswordCheckerTest {
     void testIsAlphanumeric() {
         // Arrange
         PasswordChecker checker = new PasswordChecker(5, 10);
-       
         // Act
         boolean isAlphanumeric = checker.isAlphanumeric("abc123");
-       
         // Assert
         assertEquals(true, isAlphanumeric);
     }
@@ -72,17 +65,20 @@ public class PasswordCheckerTest {
     void testIsAlphanumericInvalidSpecialChar() {
         // Arrange
         PasswordChecker checker = new PasswordChecker(7, 10);
-       
         // Act
         boolean isAlphanumeric = checker.isAlphanumeric(" abc!123");
-       
         // Assert
         assertEquals(false, isAlphanumeric);
     }
 
-    
+
     @Test
     void testIsBannedPassword() {
-
+        // Arrange
+        PasswordChecker checker = new PasswordChecker(5, 10);
+        // Act
+        boolean isBannedPassword = checker.isBannedPassword("pAssWoRd123");
+        // Assert
+        assertEquals(true, isBannedPassword);
     }
 }
