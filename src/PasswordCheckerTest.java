@@ -10,7 +10,7 @@ public class PasswordCheckerTest {
         // Arrange
         PasswordChecker checker = new PasswordChecker(5, 6);
         // Act 
-        String describePasswordLength = checker.describePasswordLength("hello");
+        String describePasswordLength = checker.describePasswordLength("donut");
         // Assert 
         assertEquals("medium", describePasswordLength);
     }
@@ -66,7 +66,7 @@ public class PasswordCheckerTest {
         // Arrange
         PasswordChecker checker = new PasswordChecker(7, 10);
         // Act
-        boolean isAlphanumeric = checker.isAlphanumeric(" abc!123");
+        boolean isAlphanumeric = checker.isAlphanumeric("abc!123");
         // Assert
         assertEquals(false, isAlphanumeric);
     }
