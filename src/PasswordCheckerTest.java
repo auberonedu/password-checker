@@ -37,4 +37,14 @@ public class PasswordCheckerTest {
     void testIsBannedPassword() {
 
     }
+
+    @Test
+    void testGetDefaultBannerPasswordsBanned(){
+        // Arrange
+        PasswordChecker banned = new PasswordChecker(3, 11);
+        // Act
+        boolean actualDescription = banned.isBannedPassword("Wassap");
+        // Assert
+        assertEquals(false, actualDescription);
+    }
 }
