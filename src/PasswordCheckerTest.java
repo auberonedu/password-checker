@@ -19,7 +19,12 @@ public class PasswordCheckerTest {
 
     @Test
     void testIsAlphanumeric() {
-
+        //Arrange
+        PasswordChecker isAlphaNumberic = new PasswordChecker(6, 12);
+        //Action
+        boolean alphaNumericTF = isAlphaNumberic.isAlphanumeric("############");
+        //Assertion
+        assertEquals(false, alphaNumericTF);
     }
 
     @Test
