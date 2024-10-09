@@ -29,6 +29,20 @@ public class PasswordCheckerTest {
         assertEquals("long", describePasswordLength);
     }
 
+    //TEST 3
+    @Test
+    void testMinPasswordLength() {
+        //Arrange
+        //below the min characters, 6 is the min, but 5 characters is entered 
+        PasswordChecker checker = new PasswordChecker(6, 10);
+        //Act
+        String describePasswordLength = checker.describePasswordLength("hello");
+
+        //Assert
+        assertEquals("short", describePasswordLength);
+    }
+
+
     @Test
     void testIsAlphanumeric() {
 
