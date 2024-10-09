@@ -45,7 +45,7 @@ public class PasswordCheckerTest {
 
     // TEST 4
     @Test
-    void testIsAlphanumericOne() {
+    void testIsAlphanumeric() {
         // Arrange
         PasswordChecker checker = new PasswordChecker(5, 10);
        
@@ -56,9 +56,9 @@ public class PasswordCheckerTest {
         assertEquals(true, isAlphanumeric);
     }
 
-    //TEST 5       
+    // TEST 5       
     @Test
-        void testIsAlphanumericEmptyString() {
+    void testIsAlphanumericEmptyString() {
         // Arrange
         PasswordChecker checker = new PasswordChecker(0, 3);
         // Act
@@ -67,12 +67,20 @@ public class PasswordCheckerTest {
         assertEquals(false, isAlphanumeric);
     }
 
-
+    // TEST 6
     @Test
-    void testIsAlphanumeric() {
-
+    void testIsAlphanumericInvalidSpecialChar() {
+        // Arrange
+        PasswordChecker checker = new PasswordChecker(7, 10);
+       
+        // Act
+        boolean isAlphanumeric = checker.isAlphanumeric(" abc!123");
+       
+        // Assert
+        assertEquals(false, isAlphanumeric);
     }
 
+    
     @Test
     void testIsBannedPassword() {
 
