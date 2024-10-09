@@ -65,6 +65,11 @@ public class PasswordCheckerTest {
 
     @Test
     void testIsBannedPassword() {
-
+        //Arrange
+        PasswordChecker checker = new PasswordChecker(5, 8);
+        //Act
+        boolean isCharacter = checker.isBannedPassword("tomato");
+        //Assert
+        assertEquals(false, isCharacter);
     }
 }
