@@ -73,7 +73,7 @@ public class PasswordCheckerTest {
 
     // TEST 7
     @Test
-    void testIsBannedPassword() {
+    void testIsBannedPasswordTrue() {
         // Arrange
         PasswordChecker checker = new PasswordChecker(5, 10);
         // Act
@@ -81,4 +81,15 @@ public class PasswordCheckerTest {
         // Assert
         assertEquals(true, isBannedPassword);
     }
-} 
+
+    // TEST 8
+    @Test
+    void testIsBannedPasswordFalse() {
+        // Arrange
+        PasswordChecker checker = new PasswordChecker(5, 20);
+        // Act
+        boolean isBannedPassword = checker.isBannedPassword("greenrivercollege123");
+        // Assert
+        assertEquals(false, isBannedPassword);
+    }
+}
