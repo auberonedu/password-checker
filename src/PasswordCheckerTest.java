@@ -24,6 +24,16 @@ public class PasswordCheckerTest {
     }
 
     @Test
+    void testDescribePasswordLengthLong() {
+        //Arrange
+        PasswordChecker checker = new PasswordChecker(1, 3);
+        //Act
+        String length = checker.describePasswordLength("Onomatopoeia");
+        //Assert
+        assertEquals("long", length);
+    }
+
+    @Test
     void testIsAlphanumeric() {
 
     }
