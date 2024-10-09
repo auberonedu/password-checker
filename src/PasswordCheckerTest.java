@@ -58,7 +58,7 @@ public class PasswordCheckerTest {
         //Arrange
         PasswordChecker checker = new PasswordChecker(5, 8);
         //Act
-        boolean isCharacter = checker.isAlphanumeric("!@##@*&%(#)(*&^%%$^)");
+        boolean isCharacter = checker.isAlphanumeric("a@##@*&%(#)(*&^%%$^)");
         //Assert
         assertEquals(false, isCharacter);
     }
