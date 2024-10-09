@@ -71,7 +71,7 @@ public class PasswordCheckerTest {
         assertEquals(false, isAlphanumeric);
     }
 
-
+    // TEST 7
     @Test
     void testIsBannedPassword() {
         // Arrange
