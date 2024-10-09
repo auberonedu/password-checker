@@ -35,7 +35,12 @@ public class PasswordCheckerTest {
 
     @Test
     void testIsBannedPassword() {
-
+        // Arrange
+        PasswordChecker isBanned = new PasswordChecker(5, 13);
+        // Act
+        boolean actualDescription = isBanned.isBannedPassword("password123");
+        // Assert
+        assertEquals(true, actualDescription);
     }
 
     @Test
