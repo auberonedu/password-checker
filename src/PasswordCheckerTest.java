@@ -56,5 +56,5 @@ public class PasswordCheckerTest {
         boolean actualDescription = banned.isBannedPassword("password123");
         // Assert
         assertEquals(true, actualDescription);
-    }ggi
+    }
 }
