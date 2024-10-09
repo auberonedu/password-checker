@@ -93,7 +93,7 @@ public class PasswordCheckerTest {
 
         // check
         // 123456 -r DONE
-        // QWERTY -a
+        // QWERTY -a DONE
         // MANGO - r DONE
         // MAnGO (if constructor adds "MAnGO" to forbidden passwords via constructor) -r DONE
 
@@ -107,6 +107,16 @@ public class PasswordCheckerTest {
         PasswordChecker checker = new PasswordChecker(2, 7);
         // Act
         boolean isBanned = checker.isBannedPassword("123456");
+        // Assert
+        assertEquals(true, isBanned);
+    }
+    
+    @Test
+    void testIsBannedPasswordCaseSensitivity() {
+        // Arrange
+        PasswordChecker checker = new PasswordChecker(2, 7);
+        // Act
+        boolean isBanned = checker.isBannedPassword("QWERTY");
         // Assert
         assertEquals(true, isBanned);
     }

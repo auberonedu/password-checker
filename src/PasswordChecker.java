@@ -17,6 +17,7 @@ public class PasswordChecker {
      * @param customBannedPasswords Set of banned passwords to be added to the default set
      */
     public PasswordChecker(int shortThreshold, int mediumThreshold, Set<String> customBannedPasswords) {
+
         this.shortThreshold = shortThreshold;
         this.mediumThreshold = mediumThreshold;
 
@@ -26,7 +27,15 @@ public class PasswordChecker {
 
 
         // Merge with custom banned passwords if provided
-        this.bannedPasswords.addAll(customBannedPasswords);
+        // this.bannedPasswords.addAll(customBannedPasswords);
+
+        Set<String> newBannedPasswordsList = new HashSet<>();
+        for (String element : customBannedPasswords){
+            newBannedPasswordsList.add(element.toLowerCase());
+        }
+        newBannedPasswordsList.addAll(defaultBannedPasswords);
+
+        this.bannedPasswords = newBannedPasswordsList;
     }
 
     /**
