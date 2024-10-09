@@ -3,14 +3,24 @@ import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.Test;
 
 public class PasswordCheckerTest {
+    // @Test
+    // void testDescribePasswordLength() {
+    //     //Arrange
+    //     PasswordChecker checker = new PasswordChecker(5, 8);
+    //     //Act
+    //     String length = checker.describePasswordLength("James");
+    //     //Assert
+    //     assertEquals("medium", length);
+    // }
+
     @Test
-    void testDescribePasswordLength() {
+    void testDescribePasswordLength () {
         //Arrange
-        PasswordChecker checker = new PasswordChecker(5, 8);
+        PasswordChecker checker = new PasswordChecker(1, 5);
         //Act
-        String length = checker.describePasswordLength("James");
+        String length = checker.describePasswordLength("Bot");
         //Assert
-        assertEquals("medium", length);
+        assertEquals("short", length);
     }
 
     @Test
