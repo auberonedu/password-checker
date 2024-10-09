@@ -47,4 +47,14 @@ public class PasswordCheckerTest {
         // Assert
         assertEquals(false, actualDescription);
     }
+
+    @Test
+    void testGetDefaultBannerPasswords(){
+        // Arrange
+        PasswordChecker banned = new PasswordChecker(3, 11);
+        // Act
+        boolean actualDescription = banned.isBannedPassword("password123");
+        // Assert
+        assertEquals(true, actualDescription);
+    }ggi
 }
