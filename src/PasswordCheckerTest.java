@@ -44,6 +44,16 @@ public class PasswordCheckerTest {
     }
 
     @Test
+    void testIsAlphanumericMixed() {
+        //Arrange
+        PasswordChecker checker = new PasswordChecker(5, 8);
+        //Act
+        boolean isCharacter = checker.isAlphanumeric("abcd1234");
+        //Assert
+        assertEquals(true, isCharacter);
+    }
+
+    @Test
     void testIsBannedPassword() {
 
     }
