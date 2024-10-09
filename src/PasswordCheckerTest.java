@@ -20,6 +20,12 @@ public class PasswordCheckerTest {
     }
 
     @Test
+    void testDescribePasswordLength_Long() {
+        PasswordChecker checker = new PasswordChecker(6, 12);
+        assertEquals("long", checker.describePasswordLength("abcdefghijklmnop"), "Password should be classified as long.");
+    }
+
+    @Test
     void testIsAlphanumeric() {
         PasswordChecker checker = new PasswordChecker(6, 12);
         assertTrue(checker.isAlphanumeric("abc123"), "Password should be alphanumeric.");
