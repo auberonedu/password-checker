@@ -33,9 +33,8 @@ public class PasswordChecker {
         for (String element : customBannedPasswords){
             newBannedPasswordsList.add(element.toLowerCase());
         }
-        newBannedPasswordsList.addAll(defaultBannedPasswords);
 
-        this.bannedPasswords = newBannedPasswordsList;
+        this.bannedPasswords.addAll(newBannedPasswordsList);
     }
 
     /**
