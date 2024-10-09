@@ -56,6 +56,17 @@ public class PasswordCheckerTest {
         assertEquals(true, isAlphanumeric);
     }
 
+    //TEST 5       
+    @Test
+        void testIsAlphanumericEmptyString() {
+        // Arrange
+        PasswordChecker checker = new PasswordChecker(0, 3);
+        // Act
+        boolean isAlphanumeric = checker.isAlphanumeric(" ");
+        // Assert
+        assertEquals(false, isAlphanumeric);
+    }
+
 
     @Test
     void testIsAlphanumeric() {
