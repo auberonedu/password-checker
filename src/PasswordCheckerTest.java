@@ -33,9 +33,23 @@ public class PasswordCheckerTest {
     }
 
     @Test
+    void testIsAlphanumeric_Invalid() {
+        PasswordChecker checker = new PasswordChecker(6, 12);
+        assertFalse(checker.isAlphanumeric("abc123!"), "Password should not be alphanumeric if it contains special characters.");
+
+    }
+
+
+    @Test
     void testIsBannedPassword() {
         PasswordChecker checker = new PasswordChecker(6, 12);
         assertTrue(checker.isBannedPassword("password123"), "Password should be banned.");
+    }    
+
+    @Test
+    void testIsBannedPassword_NotBanned() {
+        PasswordChecker checker = new PasswordChecker(6, 12);
+        assertFalse(checker.isBannedPassword("uniquePassword"), "Password should not be banned.");
     }    
 }
 
