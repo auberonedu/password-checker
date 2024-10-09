@@ -82,4 +82,14 @@ public class PasswordCheckerTest {
         //Assert
         assertEquals(true, isBanned);
     }
+
+    @Test
+    void testIsBannedPasswordContained() {
+        //Arrange
+        PasswordChecker checker = new PasswordChecker(5, 8);
+        //Act
+        boolean isBanned = checker.isBannedPassword("tiaqwertymarie");
+        //Assert
+        assertEquals(false, isBanned);
+    }
 }
