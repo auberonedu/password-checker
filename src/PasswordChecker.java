@@ -1,6 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class PasswordChecker {
     private int shortThreshold;
@@ -16,14 +17,24 @@ public class PasswordChecker {
      * @param customBannedPasswords Set of banned passwords to be added to the default set
      */
     public PasswordChecker(int shortThreshold, int mediumThreshold, Set<String> customBannedPasswords) {
+
         this.shortThreshold = shortThreshold;
         this.mediumThreshold = mediumThreshold;
 
         // Initialize with default banned passwords
         this.bannedPasswords = getDefaultBannedPasswords();
 
+
+
         // Merge with custom banned passwords if provided
-        this.bannedPasswords.addAll(customBannedPasswords);
+        // this.bannedPasswords.addAll(customBannedPasswords);
+
+        Set<String> newBannedPasswordsList = new HashSet<>();
+        for (String element : customBannedPasswords){
+            newBannedPasswordsList.add(element.toLowerCase());
+        }
+
+        this.bannedPasswords.addAll(newBannedPasswordsList);
     }
 
     /**
@@ -80,7 +91,16 @@ public class PasswordChecker {
      * @return true if the password is banned, false otherwise
      */
     public boolean isBannedPassword(String password) {
-        return bannedPasswords.contains(password.toLowerCase());
+        // Bug fixed! 
+        /* Previously, if the user added banned passwords that were 
+        not case sensitive, this method would miss it because it was 
+        only checking the string set to lower case*/
+        
+        boolean inBannedList = false;
+        if (bannedPasswords.contains(password) || bannedPasswords.contains(password.toLowerCase())){
+            inBannedList = true;
+        }
+        return inBannedList;
     }
 
     /**
@@ -89,6 +109,7 @@ public class PasswordChecker {
      * @return A set of default banned passwords
      */
     private Set<String> getDefaultBannedPasswords() {
+
         return new HashSet<>(Arrays.asList(
             "password123", "123456", "qwerty", "letmein", "password", "hello"
         ));
