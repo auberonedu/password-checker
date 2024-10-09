@@ -93,6 +93,14 @@ public class PasswordCheckerTest {
         assertEquals(false, isBannedPassword);
     }
 
-
-
+    // TEST 9
+    @Test
+    void testIsBannedPasswordBlank() {
+        // Arrange
+        PasswordChecker checker = new PasswordChecker(0, 3);
+        // Act
+        boolean isBannedPassword = checker.isBannedPassword(" ");
+        // Assert
+        assertEquals(false, isBannedPassword);
+    }
 }
