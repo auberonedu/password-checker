@@ -42,6 +42,7 @@ public class PasswordCheckerTest {
     // Assert
     assertEquals(true, actualDescription);
     }
+
      @Test
      void testIsNotAlphanumeric() {
         // Arrange
@@ -50,6 +51,16 @@ public class PasswordCheckerTest {
         boolean actualDescription = alphanumeric.isAlphanumeric("%%%");
         // Assert
         assertEquals(false, actualDescription);
+    }
+
+    @Test
+    void testIsAlphanumericNumbers() {
+    // Arrange
+    PasswordChecker alphanumeric = new PasswordChecker(5, 10);
+    // Act
+    boolean actualDescription = alphanumeric.isAlphanumeric("11111");
+    // Assert
+    assertEquals(true, actualDescription);
     }
 
     @Test
