@@ -1,4 +1,4 @@
-# password-checker
+# password-checker (Alston and Jesse)
 
 A partner exercise to practice using JUnit tests.
 
