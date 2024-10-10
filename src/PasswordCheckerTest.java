@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
@@ -42,6 +43,13 @@ public class PasswordCheckerTest {
 
     @Test
     void testIsBannedPassword() {
+        PasswordChecker checker = new PasswordChecker(6, 12);
+        boolean result1 = checker.isBannedPassword("password123");
+        boolean result2 = checker.isBannedPassword("1234567");
+        boolean result3 = checker.isBannedPassword("password");
 
+        assertTrue(result1);
+        assertEquals(false, result2);
+        assertEquals(true, result3);
     }
 }
