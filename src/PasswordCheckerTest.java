@@ -27,42 +27,42 @@ public class PasswordCheckerTest {
         assertEquals("long", checker.describePasswordLength("abcdefghijklmnop"), "Password should be classified as long.");
     }
 
-    // Test for alphanumeric password
+    // Test for alphanumeric passwords
     @Test
     void testIsAlphanumeric() {
         PasswordChecker checker = new PasswordChecker(6, 12);
         assertTrue(checker.isAlphanumeric("abc123"), "Password should be alphanumeric.");
     }
 
-     // Test for non-alphanumeric password (should contain special characters)
+     // Test for non-alphanumeric passwords (should contain special characters)
     @Test
     void testIsAlphanumeric_Invalid() {
         PasswordChecker checker = new PasswordChecker(6, 12);
         assertFalse(checker.isAlphanumeric("abc123!"), "Password should not be alphanumeric if it contains special characters.");
     }
 
-    // Test for empty password (empty string)
+    // Test for empty passwords (empty string)
     @Test
     void testIsAlphanumeric_Empty() {
         PasswordChecker checker = new PasswordChecker(6, 12);
         assertTrue(checker.isAlphanumeric(""), "Empty password should be considered alphanumeric.");
     }
 
-    // Test for banned password
+    // Test for banned passwords
     @Test
     void testIsBannedPassword() {
         PasswordChecker checker = new PasswordChecker(6, 12);
         assertTrue(checker.isBannedPassword("password123"), "Password should be banned.");
     }
 
-    // Test for not banned password
+    // Test for not banned passwords
     @Test
     void testIsBannedPassword_NotBanned() {
         PasswordChecker checker = new PasswordChecker(6, 12);
         assertFalse(checker.isBannedPassword("uniquePassword"), "Password should not be banned.");
     }
 
-    // Test for case-insensitive banned password check
+    // Test for case-insensitive banned passwords check
     @Test
     void testIsBannedPassword_CaseInsensitive() {
         PasswordChecker checker = new PasswordChecker(6, 12);
