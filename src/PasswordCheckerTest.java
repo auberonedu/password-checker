@@ -32,6 +32,7 @@ public class PasswordCheckerTest {
     // Assert
     assertEquals("medium", actualDescription);
     }
+
     @Test
     void testIsAlphanumeric() {
     // Arrange
@@ -40,6 +41,15 @@ public class PasswordCheckerTest {
     boolean actualDescription = alphanumeric.isAlphanumeric("Heythere");
     // Assert
     assertEquals(true, actualDescription);
+    }
+     @Test
+     void testIsNotAlphanumeric() {
+        // Arrange
+        PasswordChecker alphanumeric = new PasswordChecker(5, 10);
+        // Act
+        boolean actualDescription = alphanumeric.isAlphanumeric("%%%");
+        // Assert
+        assertEquals(false, actualDescription);
     }
 
     @Test
@@ -53,7 +63,7 @@ public class PasswordCheckerTest {
     }
 
     @Test
-    void testGetDefaultBannerPasswordsBanned(){
+    void testGetDefaultBannedPasswordsBanned(){
         // Arrange
         PasswordChecker banned = new PasswordChecker(3, 11);
         // Act
@@ -63,7 +73,7 @@ public class PasswordCheckerTest {
     }
 
     @Test
-    void testGetDefaultBannerPasswords(){
+    void testGetDefaultBannedPasswords(){
         // Arrange
         PasswordChecker banned = new PasswordChecker(3, 11);
         // Act
