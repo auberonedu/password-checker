@@ -5,15 +5,35 @@ import org.junit.jupiter.api.Test;
 public class PasswordCheckerTest {
     @Test
     void testDescribePasswordLengthShort() {
-
+        //Arrange
+        PasswordChecker isPasswordShort = new PasswordChecker(5, 10);
+       
+        //Action
+        String shortpassword = isPasswordShort.describePasswordLength("Luv");
+        //Assertion 
+        assertEquals("short", shortpassword);
+        
     }
     @Test
     void testDescribePasswordLengthMedium() {
 
+        PasswordChecker isPasswordShort = new PasswordChecker(5, 10);
+       
+        //Action
+        String mediumpassword = isPasswordShort.describePasswordLength("Luvstuck");
+        //Assertion 
+        assertEquals("medium", mediumpassword);
+        
     }
 
     @Test
     void testDescribePasswordLengthLong() {
+        PasswordChecker isPasswordShort = new PasswordChecker(5, 10);
+       
+        //Action
+        String longpassword = isPasswordShort.describePasswordLength("Luvstuck4you");
+        //Assertion 
+        assertEquals("long", longpassword);
 
     }
 
@@ -26,6 +46,8 @@ public class PasswordCheckerTest {
         //Assertion
         assertEquals(false, alphaNumericTF);
     }
+
+    
 
     @Test
     void testIsBannedPasswordpassword123() {
