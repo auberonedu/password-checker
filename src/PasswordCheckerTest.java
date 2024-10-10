@@ -22,7 +22,7 @@ public class PasswordCheckerTest {
         assertTrue(checker.isAlphanumeric("1"));
         
         // Test for an invalid password with special characters
-        assertTrue(checker.isAlphanumeric("123"));
+        assertTrue(checker.isAlphanumeric("12@3"));
     }
 
     // Test for isBannedPassword method
