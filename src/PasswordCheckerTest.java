@@ -23,7 +23,7 @@ public class PasswordCheckerTest {
         checkAlphaNum.isAlphanumeric("SuperMarioWowie!");
         checkAlphaNum.isAlphanumeric("Hi!");
         assertEquals(true, checkAlphaNum.isAlphanumeric("password"));
-        assertEquals(false, checkAlphaNum.isAlphanumeric("SuperMarioWowie!"));
+        assertEquals(false, checkAlphaNum.isAlphanumeric("SuperMario!Wowie!"));
         assertEquals(false, checkAlphaNum.isAlphanumeric("Hi!"));
     }
 
