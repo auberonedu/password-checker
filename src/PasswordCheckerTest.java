@@ -31,8 +31,10 @@ public class PasswordCheckerTest {
     void testIsBannedPassword() {
         PasswordChecker checkBan = new PasswordChecker(6, 10, new HashSet<>(Arrays.asList("password123", "123456", "qwerty", "letmein", "password", "hello")));
         checkBan.isBannedPassword("123456");
-        assertEquals(true, checkBan.isBannedPassword("123456"));
         checkBan.isBannedPassword("SuperMarioWowie");
+        checkBan.isBannedPassword("Hi!");
+        assertEquals(true, checkBan.isBannedPassword("123456"));
         assertEquals(false, checkBan.isBannedPassword("SuperMarioWowie"));
+        assertEquals(false, checkBan.isBannedPassword("Hi!"));
     }
 }
