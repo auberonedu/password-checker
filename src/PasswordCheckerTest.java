@@ -47,6 +47,26 @@ public class PasswordCheckerTest {
         assertEquals(false, alphaNumericTF);
     }
 
+
+    @Test
+    void testIsAlphanumeric2() {
+        //Arrange
+        PasswordChecker isAlphaNumberic = new PasswordChecker(6, 12);
+        //Action
+        boolean alphaNumericTF = isAlphaNumberic.isAlphanumeric("redDog234");
+        //Assertion
+        assertEquals(true, alphaNumericTF);
+    }
+
+    @Test
+    void testIsAlphanumeric3() {
+        //Arrange
+        PasswordChecker isAlphaNumberic = new PasswordChecker(0, 0);
+        //Action
+        boolean alphaNumericTF = isAlphaNumberic.isAlphanumeric("");
+        //Assertion
+        assertEquals(true, alphaNumericTF);
+    }
     
 
     @Test
