@@ -38,7 +38,7 @@ public class PasswordCheckerTest {
     }
 
     @Test
-    void testIsAlphanumeric() {
+    void testIsAlphanumericSpecialChar() {
         //Arrange
         PasswordChecker isAlphaNumberic = new PasswordChecker(6, 12);
         //Action
@@ -47,7 +47,25 @@ public class PasswordCheckerTest {
         assertEquals(false, alphaNumericTF);
     }
 
-    
+    @Test
+    void testIsAlphanumeric() {
+        //Arrange
+        PasswordChecker isAlphaNumberic = new PasswordChecker(6, 12);
+        //Action
+        boolean alphaNumericTF = isAlphaNumberic.isAlphanumeric("TestTest2024");
+        //Assertion
+        assertEquals(true, alphaNumericTF);
+    }
+
+    @Test
+    void testIsAlphanumericMixed() {
+        //Arrange
+        PasswordChecker isAlphaNumberic = new PasswordChecker(6, 12);
+        //Action
+        boolean alphaNumericTF = isAlphaNumberic.isAlphanumeric("%^GoGators24!");
+        //Assertion
+        assertEquals(false, alphaNumericTF);
+    }
 
     @Test
     void testIsBannedPasswordpassword123() {
