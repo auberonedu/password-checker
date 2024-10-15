@@ -38,6 +38,7 @@ public class PasswordCheckerTest {
         assertFalse(result1);
         assertTrue(result2);
         assertTrue(result3);
+        //comment
 
     }
 
